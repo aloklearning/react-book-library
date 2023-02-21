@@ -1,6 +1,6 @@
 // This is a custom hook to get all the books
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 
 interface PayloadProps {
     page?: number;
@@ -8,12 +8,19 @@ interface PayloadProps {
     filters?: Array<{type: string, values: Array<string | number>}>;
 }
 
-const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): string => {
+interface ReturnDataType {
+    isLoading: boolean;
+    queryParamUrl: string;
+}
+
+const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): ReturnDataType => {
     const booksDispatcher = useDispatch();
+    const [isLoading, setIsLoading] = useState(false);
     const urlForQueryParam = 'http://nyx.vima.ekt.gr:3000/api/books?'
     + `page=${page}&itemsPerPage=${itemsPerPage}&filters=${filters}`;
 
     useEffect(() => { 
+        setIsLoading(true);
         const fetchBooksData = async () => {
             const payload = { page, itemsPerPage, filters };
 
@@ -28,8 +35,12 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
                 });
 
                 const jsonResponse = await response.json();
+
+                // Dispatching the updated information to the redux store finally
+                setIsLoading(false);
                 booksDispatcher({ type: 'ADD_BOOKS', payload: jsonResponse.books })
             } catch (error) {
+                setIsLoading(false);
                 return null;
             }
         }
@@ -38,7 +49,7 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
      // eslint-disable-next-line react-hooks/exhaustive-deps
      }, [urlForQueryParam])
 
-    return urlForQueryParam;
+    return { isLoading, queryParamUrl: urlForQueryParam };
 }
 
 export default useFetchBooksURL;
