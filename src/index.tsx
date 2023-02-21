@@ -1,8 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+
+import { Provider } from 'react-redux';
+import bookReducer from './Redux/reducers';
+import { configureStore } from '@reduxjs/toolkit';
+
+const bookStore = configureStore({ reducer: { books: bookReducer }});
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -10,7 +17,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={bookStore}>
+      <App />
+    </Provider>
   </React.StrictMode>
 );
 
