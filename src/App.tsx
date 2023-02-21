@@ -1,5 +1,6 @@
 import './App.css';
 
+import Header from './Components/Header';
 import { GetBooks } from './Helpers/GetBooks';
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
   
   return (
     <div className="App">
-      
+      <Header />
     </div>
   );
 }

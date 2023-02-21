@@ -1,1 +1,5 @@
-
+.Header {
+    padding: 1px 15%;
+    display: block;
+    background-color: white;
+}
