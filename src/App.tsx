@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 
 import Header from './Components/Header';
 import Loader from './Components/Loader';
+import BooksCard from './Components/BooksCard';
 import usefetchBooksURL from './Helpers/getBooksURL';
 import { InitialBookState } from './Redux/initialStateInterface';
 
@@ -14,7 +15,7 @@ const App = () => {
     <div className="App">
       <Header />
       {getURLBooks.isLoading ? 
-      <Loader /> : <></>}
+      <Loader /> : <BooksCard />}
     </div>
   );
 }
