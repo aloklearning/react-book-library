@@ -22,7 +22,7 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filterValues='' }: PayloadP
         // This helps to make the query url change, leading to making
         // pagination data persistant
         setSearchParams(urlForQueryParam);
-        const payload = { 
+        const payload = {
             page, 
             itemsPerPage,
             filters: filterValues !== 'null' ? [{ type: 'all', values: [filterValues] }] : []

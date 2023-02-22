@@ -37,7 +37,11 @@ const App = () => {
 
   return (
     <div className="App">
-      <SearchBox searchedValue={filterValues} setFilters={setFiltersValues} />
+      <SearchBox
+        setPageNumber={setPage} 
+        searchedValue={filterValues} 
+        setFilters={setFiltersValues} 
+      />
 
       {getLoadingState ? 
       <Loader /> : 

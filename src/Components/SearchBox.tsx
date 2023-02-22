@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { Box, Grid, Button, TextField } from "@mui/material";
 
 interface SearchBoxParams {
-    searchedValue: string | null,
-    setFilters: React.Dispatch<React.SetStateAction<string | null>>
+    searchedValue: string | null;
+    setPageNumber: React.Dispatch<React.SetStateAction<number>>;
+    setFilters: React.Dispatch<React.SetStateAction<string | null>>;
 }
 
-const SearchBox = ({ searchedValue, setFilters }: SearchBoxParams) => {
+const SearchBox = ({ searchedValue, setPageNumber, setFilters }: SearchBoxParams) => {
     const [searchText, setSearchText] = useState(searchedValue !== 'null' ? searchedValue : '');
 
     const onChangeText = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -23,6 +24,7 @@ const SearchBox = ({ searchedValue, setFilters }: SearchBoxParams) => {
     const onClearFilter = (): void => {
         if(searchText) {
             setSearchText('');
+            setPageNumber(1);
             setFilters('null');
 
             return;

@@ -36,13 +36,13 @@ class SubContent extends Component<SubContentProps> {
                 </IconButton>
 
                 <Typography 
-                sx={{fontSize: {md: '1rem', xs: '0.9rem'}}}>
+                sx={{fontSize: {md: '1rem', xs: '0.9rem'}, mb: 0.8}}>
                     {this.props.title}:&nbsp;
                 </Typography>
 
                 <Typography 
                 color="text.secondary" 
-                sx={{fontSize: {md: '1rem', xs: '0.9rem'}}}>
+                sx={{fontSize: {md: '1rem', xs: '0.9rem'}, mb: 0.8}}>
                     {this.props.content}
                 </Typography>
             </CardActions>
