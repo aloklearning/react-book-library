@@ -16,13 +16,16 @@ const SearchBox = ({ searchedValue, setPageNumber, setFilters }: SearchBoxParams
 
     const onSearch = (): void => {
         if(searchText) {
+            setPageNumber(1); // Resetting the index
             setFilters(searchText);
+
             return;
         }
     }
 
     const onClearFilter = (): void => {
         if(searchText) {
+            // Resetting everything
             setSearchText('');
             setPageNumber(1);
             setFilters('null');
