@@ -3,3 +3,9 @@
     display: block;
     background-color: white;
 }
+
+.MuiPagination-root { 
+   display: flex;
+   padding: 4% 0;
+   justify-content: center; 
+ } 

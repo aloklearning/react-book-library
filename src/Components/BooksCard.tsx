@@ -1,9 +1,18 @@
-import React from "react";
+import { Component } from "react";
+import { Book } from "../Interfaces/bookInterface";
 
-class BooksCard extends React.Component {
+interface BookCardProps {
+    book: Book
+}
+
+class BooksCard extends Component<BookCardProps> {
     render() {
+
+        const bookItem = this.props.book;
         return (
-            <div></div>
+            <div style={{ padding: '0 15%'}}>
+                <h2>{bookItem.id}</h2>
+            </div>
         );
     }
 }

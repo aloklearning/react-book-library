@@ -9,7 +9,7 @@ import { Provider } from 'react-redux';
 import bookReducer from './Redux/reducers';
 import { configureStore } from '@reduxjs/toolkit';
 
-const bookStore = configureStore({ reducer: { books: bookReducer }});
+const bookStore = configureStore({ reducer: bookReducer });
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

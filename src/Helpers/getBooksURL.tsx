@@ -8,22 +8,17 @@ interface PayloadProps {
     filters?: Array<{type: string, values: Array<string | number>}>;
 }
 
-interface ReturnDataType {
-    isLoading: boolean;
-    queryParamUrl: string;
-}
-
-const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): ReturnDataType => {
+const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): boolean => {
     const booksDispatcher = useDispatch();
+    const payload = { page, itemsPerPage, filters };
     const [isLoading, setIsLoading] = useState(false);
-    const urlForQueryParam = 'http://nyx.vima.ekt.gr:3000/api/books?'
-    + `page=${page}&itemsPerPage=${itemsPerPage}&filters=${filters}`;
+    
+    // const urlForQueryParam = 'http://nyx.vima.ekt.gr:3000/api/books?'
+    // + `page=${page}&itemsPerPage=${itemsPerPage}&filters=${filters}`;
 
     useEffect(() => { 
         setIsLoading(true);
         const fetchBooksData = async () => {
-            const payload = { page, itemsPerPage, filters };
-
             try {
                 const response = await fetch('http://nyx.vima.ekt.gr:3000/api/books', {
                     mode: 'cors', 
@@ -38,7 +33,10 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
 
                 // Dispatching the updated information to the redux store finally
                 setIsLoading(false);
-                booksDispatcher({ type: 'ADD_BOOKS', payload: jsonResponse.books })
+                booksDispatcher({ type: 'ADD_BOOKS', payload: {
+                    books: jsonResponse.books, 
+                    count: jsonResponse.count 
+                }});
             } catch (error) {
                 setIsLoading(false);
                 return null;
@@ -47,9 +45,9 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
 
         fetchBooksData();
      // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [urlForQueryParam])
+     }, [page, itemsPerPage]);
 
-    return { isLoading, queryParamUrl: urlForQueryParam };
+    return isLoading;
 }
 
 export default useFetchBooksURL;
