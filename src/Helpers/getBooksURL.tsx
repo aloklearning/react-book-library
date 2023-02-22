@@ -1,6 +1,7 @@
 // This is a custom hook to get all the books
 import { useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 interface PayloadProps {
     page?: number;
@@ -11,10 +12,13 @@ interface PayloadProps {
 const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): boolean => {
     const booksDispatcher = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
-    const urlForQueryParam = `?page=${page}&itemsPerPage=${itemsPerPage}&filters=${null}`;
+
+    const [seachParams, setSearchParams] = useSearchParams();
+    const urlForQueryParam = `?page=${page}&itemsPerPage=${itemsPerPage}&filters=${filters.length > 0 ? filters : null}`;
 
     useEffect(() => { 
         setIsLoading(true);
+        setSearchParams(urlForQueryParam);
 
         const fetchBooksData = async () => {
             const payload = { page, itemsPerPage, filters };

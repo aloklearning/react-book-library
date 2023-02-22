@@ -41,7 +41,8 @@ class BooksCard extends Component<BookCardProps> {
         const bookItem = this.props.book;
         return (
             <div style={{ padding: '0 15%'}}>
-                <Card sx={{ minWidth: 275, mb: '20px' }}>
+                <Card 
+                sx={{ minWidth: 275, mb: '20px' }}>
                     <CardActions disableSpacing sx={{pb: 0}}>
                         <IconButton aria-label="book">
                             <BookIcon />
@@ -59,8 +60,8 @@ class BooksCard extends Component<BookCardProps> {
                     <SubContent title="Author" content={bookItem.book_author.map((author: string) => author)} />
                     <SubContent title="Book Pages" content={bookItem.book_pages} />
                     <SubContent title="Book Publication Year" content={bookItem.book_publication_year} />
-                    <SubContent title="Book Publication Country" content={bookItem.book_publication_country} />
                     <SubContent title="Book Publication City" content={bookItem.book_publication_city} />
+                    <SubContent title="Book Publication Country" content={bookItem.book_publication_country} />
                 </Card>
             </div>
         );

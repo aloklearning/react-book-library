@@ -13,7 +13,11 @@ import { InitialBookState } from './Redux/initialStateInterface';
 
 const App = () => {
   const itemsPerPage: number = 20;
-  const [page, setPage] = useState(1);
+
+  // Getting the data from the url now
+  const queryParams = new URLSearchParams(window.location.search);
+  const [page, setPage] = useState<number>(Number(queryParams.get('page')));
+
   const getLoadingState = usefetchBooksURL({page});
   const booksData = useSelector(state => state) as InitialBookState;
 
