@@ -13,7 +13,7 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filterValues='' }: PayloadP
     const booksDispatcher = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
 
-    const [seachParams, setSearchParams] = useSearchParams();
+    const [, setSearchParams] = useSearchParams();
     const urlForQueryParam = `?page=${page}&itemsPerPage=${itemsPerPage}&filters=${filterValues}`;
 
     useEffect(() => { 
