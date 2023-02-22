@@ -53,6 +53,7 @@ const SearchBox = ({ searchedValue, setPageNumber, setFilters }: SearchBoxParams
                     <Button
                     size="medium"
                     variant="contained"
+                    data-testid="search-button"
                     sx={{
                         fontWeight: 'bold',
                         backgroundColor: '#D288DA',

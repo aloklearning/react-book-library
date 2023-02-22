@@ -15,6 +15,6 @@ test('renders search button', () => {
     </Provider>
   );
 
-  const searchButton = screen.getByText("Search");
+  const searchButton = screen.getByTestId("search-button");
   expect(searchButton).toBeInTheDocument();
 });
