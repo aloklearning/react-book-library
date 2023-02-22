@@ -2,12 +2,12 @@ import { Component } from "react";
 import { Book } from "../Interfaces/bookInterface";
 
 import { 
-    Map,
-    Group,
-    MenuBook,
-    LocationOn,
-    CalendarMonth,
-    Book as BookIcon
+    MapTwoTone,
+    BookTwoTone,
+    GroupTwoTone,
+    MenuBookTwoTone,
+    LocationOnTwoTone,
+    CalendarMonthTwoTone,
 } from "@mui/icons-material";
 
 import { 
@@ -56,10 +56,16 @@ class BooksCard extends Component<BookCardProps> {
         return (
             <div style={{ padding: '0 15%'}}>
                 <Card 
-                sx={{ minWidth: 275, mb: '20px', borderRadius: 3, border: '4px solid green'}}>
+                sx={{ 
+                    pb: 1, 
+                    mb: '20px', 
+                    minWidth: 275, 
+                    borderRadius: 3, 
+                    border: '4px solid green'}}
+                >
                     <CardActions disableSpacing sx={{pb: 0}}>
                         <IconButton aria-label="book">
-                            <BookIcon />
+                            <BookTwoTone />
                         </IconButton>
                         
                         <Typography 
@@ -73,30 +79,30 @@ class BooksCard extends Component<BookCardProps> {
 
                     <SubContent 
                         title="Author" 
-                        icon={<Group />}
+                        icon={<GroupTwoTone />}
                         content={bookItem.book_author.map((author: string) => author)} 
                     />
 
                     <SubContent 
                         title="Book Pages" 
-                        icon={<MenuBook />}
+                        icon={<MenuBookTwoTone />}
                         content={bookItem.book_pages} 
                     />
 
                     <SubContent 
-                        icon={<CalendarMonth />}
+                        icon={<CalendarMonthTwoTone />}
                         title="Book Publication Year" 
                         content={bookItem.book_publication_year} 
                     />
 
                     <SubContent 
-                        icon={<LocationOn />}
+                        icon={<LocationOnTwoTone />}
                         title="Book Publication City" 
                         content={bookItem.book_publication_city} 
                     />
 
                     <SubContent 
-                        icon={<Map />}
+                        icon={<MapTwoTone />}
                         title="Book Publication Country" 
                         content={bookItem.book_publication_country} 
                     />
