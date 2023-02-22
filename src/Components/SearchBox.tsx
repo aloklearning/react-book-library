@@ -2,19 +2,29 @@ import React, { useState } from "react";
 import { Box, Grid, Button, TextField } from "@mui/material";
 
 interface SearchBoxParams {
-    setFilters: React.Dispatch<any>
+    searchedValue: string | null,
+    setFilters: React.Dispatch<React.SetStateAction<string | null>>
 }
 
-const SearchBox = ({ setFilters }: SearchBoxParams) => {
-    const [searchText, setSearchText] = useState('');
+const SearchBox = ({ searchedValue, setFilters }: SearchBoxParams) => {
+    const [searchText, setSearchText] = useState(searchedValue !== 'null' ? searchedValue : '');
 
     const onChangeText = (e: React.ChangeEvent<HTMLInputElement>): void => {
         setSearchText(e.target.value);
     }
 
     const onSearch = (): void => {
-        if(searchText){
-            setFilters([{type: 'all', values: [searchText]}]);
+        if(searchText) {
+            setFilters(searchText);
+            return;
+        }
+    }
+
+    const onClearFilter = (): void => {
+        if(searchText) {
+            setSearchText('');
+            setFilters('null');
+
             return;
         }
     }
@@ -22,7 +32,7 @@ const SearchBox = ({ setFilters }: SearchBoxParams) => {
     return(
         <Box sx={{ flexGrow: 1, padding: '0 15%' }}>
             <Grid container spacing={2} sx={{ pt: 3 }}>
-                <Grid item md={9} xs={12}>
+                <Grid item xs={12}>
                     <TextField  
                         size="small"
                         value={searchText}
@@ -34,7 +44,7 @@ const SearchBox = ({ setFilters }: SearchBoxParams) => {
                     />
                 </Grid>
 
-                <Grid item md={3} xs={12}>
+                <Grid item xs={12}>
                     <Button
                     size="medium"
                     variant="contained"
@@ -45,11 +55,27 @@ const SearchBox = ({ setFilters }: SearchBoxParams) => {
                             color: '#000',
                             backgroundColor: '#fff'
                         },
-                        marginTop: { xs: 0, md: 2 }, 
                         marginBottom: { xs: 2, md: 0 }
                     }}
                     onClick={onSearch}>
                         Search
+                    </Button>
+
+                    <Button
+                    size="medium"
+                    variant="contained"
+                    sx={{
+                        ml: 2,
+                        fontWeight: 'bold',
+                        backgroundColor: '#D288DA',
+                        ':hover': {
+                            color: '#000',
+                            backgroundColor: '#fff'
+                        },
+                        marginBottom: { xs: 2, md: 0 }
+                    }}
+                    onClick={onClearFilter}>
+                        Clear Filter
                     </Button>
                 </Grid>
             </Grid>

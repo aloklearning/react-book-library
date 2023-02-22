@@ -6,15 +6,15 @@ import { useSearchParams } from 'react-router-dom';
 interface PayloadProps {
     page?: number;
     itemsPerPage?: number;
-    filters?: Array<{type: string, values: Array<string | number>}>;
+    filterValues?: string | null;
 }
 
-const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): boolean => {
+const useFetchBooksURL = ({ page=1, itemsPerPage=20, filterValues='' }: PayloadProps): boolean => {
     const booksDispatcher = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
 
     const [seachParams, setSearchParams] = useSearchParams();
-    const urlForQueryParam = `?page=${page}&itemsPerPage=${itemsPerPage}&filters=${filters.length > 0 ? filters : null}`;
+    const urlForQueryParam = `?page=${page}&itemsPerPage=${itemsPerPage}&filters=${filterValues}`;
 
     useEffect(() => { 
         setIsLoading(true);
@@ -22,10 +22,13 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
         // This helps to make the query url change, leading to making
         // pagination data persistant
         setSearchParams(urlForQueryParam);
+        const payload = { 
+            page, 
+            itemsPerPage,
+            filters: filterValues !== 'null' ? [{ type: 'all', values: [filterValues] }] : []
+        };
 
         const fetchBooksData = async () => {
-            const payload = { page, itemsPerPage, filters };
-
             try {
                 const response = await fetch('http://nyx.vima.ekt.gr:3000/api/books', {
                     mode: 'cors', 
@@ -52,7 +55,7 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
 
         fetchBooksData();
      // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [page, filters.length]);
+     }, [page, filterValues]);
 
     return isLoading;
 }
