@@ -18,6 +18,9 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
 
     useEffect(() => { 
         setIsLoading(true);
+        
+        // This helps to make the query url change, leading to making
+        // pagination data persistant
         setSearchParams(urlForQueryParam);
 
         const fetchBooksData = async () => {

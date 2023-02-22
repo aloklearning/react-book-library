@@ -1,6 +1,15 @@
 import { Component } from "react";
 import { Book } from "../Interfaces/bookInterface";
-import BookIcon from '@mui/icons-material/Book';
+
+import { 
+    Map,
+    Group,
+    MenuBook,
+    LocationOn,
+    CalendarMonth,
+    Book as BookIcon
+} from "@mui/icons-material";
+
 import { 
     Card, 
     CardActions,
@@ -15,14 +24,19 @@ interface BookCardProps {
 interface SubContentProps {
     title: string;
     content: string | any;
+    icon: any;
 }
 
 class SubContent extends Component<SubContentProps> {
     render() {
         return (
-            <CardActions sx={{mt: 0, pt: 0}} disableSpacing>
+            <CardActions sx={{mt: 0, pt: 0, pb: 0}} disableSpacing>
+                <IconButton aria-label="book" sx={{pt: 0, pb: 1}}>
+                    {this.props.icon}
+                </IconButton>
+
                 <Typography 
-                sx={{pl: 5, fontSize: {md: '1rem', xs: '0.9rem'}}}>
+                sx={{fontSize: {md: '1rem', xs: '0.9rem'}}}>
                     {this.props.title}:&nbsp;
                 </Typography>
 
@@ -42,7 +56,7 @@ class BooksCard extends Component<BookCardProps> {
         return (
             <div style={{ padding: '0 15%'}}>
                 <Card 
-                sx={{ minWidth: 275, mb: '20px' }}>
+                sx={{ minWidth: 275, mb: '20px', borderRadius: 3, border: '4px solid green'}}>
                     <CardActions disableSpacing sx={{pb: 0}}>
                         <IconButton aria-label="book">
                             <BookIcon />
@@ -57,11 +71,35 @@ class BooksCard extends Component<BookCardProps> {
                         </Typography>
                     </CardActions>
 
-                    <SubContent title="Author" content={bookItem.book_author.map((author: string) => author)} />
-                    <SubContent title="Book Pages" content={bookItem.book_pages} />
-                    <SubContent title="Book Publication Year" content={bookItem.book_publication_year} />
-                    <SubContent title="Book Publication City" content={bookItem.book_publication_city} />
-                    <SubContent title="Book Publication Country" content={bookItem.book_publication_country} />
+                    <SubContent 
+                        title="Author" 
+                        icon={<Group />}
+                        content={bookItem.book_author.map((author: string) => author)} 
+                    />
+
+                    <SubContent 
+                        title="Book Pages" 
+                        icon={<MenuBook />}
+                        content={bookItem.book_pages} 
+                    />
+
+                    <SubContent 
+                        icon={<CalendarMonth />}
+                        title="Book Publication Year" 
+                        content={bookItem.book_publication_year} 
+                    />
+
+                    <SubContent 
+                        icon={<LocationOn />}
+                        title="Book Publication City" 
+                        content={bookItem.book_publication_city} 
+                    />
+
+                    <SubContent 
+                        icon={<Map />}
+                        title="Book Publication Country" 
+                        content={bookItem.book_publication_country} 
+                    />
                 </Card>
             </div>
         );
