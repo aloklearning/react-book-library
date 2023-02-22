@@ -8,6 +8,7 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import bookReducer from './Redux/reducers';
 import { configureStore } from '@reduxjs/toolkit';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 const bookStore = configureStore({ reducer: bookReducer });
 
@@ -18,7 +19,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <Provider store={bookStore}>
-      <App />
+      <BrowserRouter>
+        <Routes>
+          <Route path='/api/books' element={<App />} />
+        </Routes>
+      </BrowserRouter>
     </Provider>
   </React.StrictMode>
 );

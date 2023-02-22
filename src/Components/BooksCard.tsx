@@ -1,10 +1,9 @@
-import { Component, ReactNode } from "react";
+import { Component } from "react";
 import { Book } from "../Interfaces/bookInterface";
 import BookIcon from '@mui/icons-material/Book';
 import { 
     Card, 
-    CardActions, 
-    CardContent,
+    CardActions,
     IconButton, 
     Typography
 } from '@mui/material';

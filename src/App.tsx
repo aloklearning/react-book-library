@@ -5,12 +5,11 @@ import { Pagination } from '@mui/material';
 
 import Header from './Components/Header';
 import Loader from './Components/Loader';
-import { Book } from './Interfaces/bookInterface';
-// import BooksCard from './Components/BooksCard';
+import BooksCard from './Components/BooksCard';
 import usePagination from './Helpers/pagination';
+import { Book } from './Interfaces/bookInterface';
 import usefetchBooksURL from './Helpers/getBooksURL';
 import { InitialBookState } from './Redux/initialStateInterface';
-import BooksCard from './Components/BooksCard';
 
 
 const App = () => {
