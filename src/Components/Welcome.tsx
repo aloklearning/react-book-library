@@ -11,7 +11,7 @@ const WelcomePage = () => {
     }
 
     return (
-        <div style={{ padding: '15% 30% 15% 15%'}}>
+        <div style={{ padding: '15% 45% 15% 15%'}}>
             <Typography 
             fontWeight='bold'
             fontFamily='Poppins'
@@ -31,11 +31,20 @@ const WelcomePage = () => {
             </Typography>
 
             <Button 
-                size='large' 
-                variant="contained"
-                onClick={goToHomePage}>
-                    Explore
-                </Button>
+            size='large' 
+            variant="contained"
+            sx={{
+                mt: 1,
+                fontWeight: 'bold',
+                backgroundColor: '#D288DA',
+                ':hover': {
+                    color: '#000',
+                    backgroundColor: '#fff'
+                }
+            }}
+            onClick={goToHomePage}>
+                Explore
+            </Button>
         </div>
     );
 }

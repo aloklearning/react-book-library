@@ -52,7 +52,7 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
 
         fetchBooksData();
      // eslint-disable-next-line react-hooks/exhaustive-deps
-     }, [page, itemsPerPage]);
+     }, [page, filters.length]);
 
     return isLoading;
 }

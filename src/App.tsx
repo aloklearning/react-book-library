@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 
 import Loader from './Components/Loader';
+import SearchBox from './Components/SearchBox';
 import BooksCard from './Components/BooksCard';
 import usePagination from './Helpers/pagination';
 import { Book } from './Interfaces/bookInterface';
@@ -15,10 +16,11 @@ const App = () => {
   const itemsPerPage: number = 20;
 
   // Getting the data from the url now
+  const [filters, setFilters] = useState<Array<any>>([]);
   const queryParams = new URLSearchParams(window.location.search);
   const [page, setPage] = useState<number>(Number(queryParams.get('page')));
 
-  const getLoadingState = usefetchBooksURL({page});
+  const getLoadingState = usefetchBooksURL({page, filters});
   const booksData = useSelector(state => state) as InitialBookState;
 
   const PaginationData = usePagination(booksData.books, itemsPerPage);
@@ -29,6 +31,8 @@ const App = () => {
 
   return (
     <div className="App">
+      <SearchBox setFilters={setFilters} />
+
       {getLoadingState ? 
       <Loader /> : 
       <>
