@@ -10,7 +10,6 @@ interface PayloadProps {
 
 const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps): boolean => {
     const booksDispatcher = useDispatch();
-    const payload = { page, itemsPerPage, filters };
     const [isLoading, setIsLoading] = useState(false);
     
     // const urlForQueryParam = 'http://nyx.vima.ekt.gr:3000/api/books?'
@@ -19,6 +18,8 @@ const useFetchBooksURL = ({ page=1, itemsPerPage=20, filters=[] }: PayloadProps)
     useEffect(() => { 
         setIsLoading(true);
         const fetchBooksData = async () => {
+            const payload = { page, itemsPerPage, filters };
+            
             try {
                 const response = await fetch('http://nyx.vima.ekt.gr:3000/api/books', {
                     mode: 'cors', 

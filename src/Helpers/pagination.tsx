@@ -2,12 +2,8 @@ import { useState } from "react";
 import { Book } from "../Interfaces/bookInterface";
 
 interface ReturnDataItems {
-    next: Function;
-    prev: Function;
     jump: Function;
     currentData: Function;
-    currentPage: number;
-    maxPage: number;
 }
 
 const usePagination = (data: Array<Book>, itemsPerPage: number): ReturnDataItems => {
@@ -20,20 +16,11 @@ const usePagination = (data: Array<Book>, itemsPerPage: number): ReturnDataItems
         return data.slice(begin, end);
     }
 
-    const next = (): void => {
-        setCurrentPage(currentPage => Math.min(currentPage + 1, maxPage));
-    }
-
-    const prev = (): void => {
-        setCurrentPage(currentPage => Math.max(currentPage -1, 1));
-    }
-
     const jump = (page: number): void => {
         const pageNumber = Math.max(1, page);
         setCurrentPage(_ => Math.min(pageNumber, maxPage));
     }
-
-    return { next, prev, jump, currentData, currentPage, maxPage };
+    return { jump, currentData }
 }
 
 export default usePagination;
