@@ -8,4 +8,16 @@
    display: flex;
    padding: 4% 0;
    justify-content: center; 
- } 
+ }
+ 
+ .MuiPagination-root li button {
+    height: 25px;
+    min-width: 30px;
+ }
+
+ @media screen and (min-width: 600px) {
+  .MuiPagination-root li button {
+      height: 40px;
+      min-width: 40px;
+  }
+ }
