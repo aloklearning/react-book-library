@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Pagination } from '@mui/material';
 
-import Header from './Components/Header';
 import Loader from './Components/Loader';
 import BooksCard from './Components/BooksCard';
 import usePagination from './Helpers/pagination';
@@ -26,7 +25,6 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
       {getLoadingState ? 
       <Loader /> : 
       <>
