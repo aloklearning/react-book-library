@@ -78,6 +78,7 @@ npm test
 - [x] The app should be paginated with the pagination reflected in the url (so when the page is refreshed, the same results are shown).
 - [x] Write at least one component as a React class based component (the rest can be functional components). Component name is [BooksCard](https://github.com/aloklearning/react-book-library/blob/main/src/Components/BooksCard.tsx).
 - [x] Write at least one unit test.
+- [x] The repo is GitHub repo has kept **private**.
 - [x] Host your code on Github, put all the code in a Pull Request against the (probably) empty repo.
 
 ## Bonus Checklist
