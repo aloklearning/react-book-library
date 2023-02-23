@@ -6,7 +6,7 @@
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) used to go through the list of the books.
 - This project is **fully responsive** and has taken UI motivations from [GetGround](https://www.getground.co.uk/) to give a feeling of belongingness to the GetGround ecosystem.
-  The UI/UX implementations and strategiies are purely developer's ([Alok Kumar](https://github.com/aloklearning)) work and there is no way it has been copy-pasted from other website.
+- The UI/UX implementations and strategiies are purely developer's ([Alok Kumar](https://github.com/aloklearning)) work and there is no way it has been copy-pasted from other website.
 - This project comes with a basic filter to find out the books which aligns with our choice of input.
 
 ## Pre-Requisites
