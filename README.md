@@ -79,7 +79,7 @@ npm test
 - [x] Write at least one component as a React class based component (the rest can be functional components). Component name is [BooksCard](https://github.com/aloklearning/react-book-library/blob/main/src/Components/BooksCard.tsx).
 - [x] Write at least one unit test.
 - [x] The repo is GitHub repo has kept **private**.
-- [x] Host your code on Github, put all the code in a Pull Request against the (probably) empty repo.
+- [x] Host your code on Github, put all the code in a Pull Request **(Partially done)**.
 
 ## Bonus Checklist
 
@@ -92,7 +92,8 @@ npm test
 - By url, we meean `search query url`.
 - Filter post param update leads to updating the books item and the url doesn't have to look like `[type: 'all', values: ['']]`.
 - Writing unit test, doesn't have any hard rules on testing every component and features. Have added 4 test cases, doing a very basic unit testing.
-- Can install other helping libraries like `react-router-dom`.
+- Can install other helping libraries like `react-router-dom`, `material-ui/icons`.
+- Opening a PR against a non-empty repo will work, as we have used the word **(probably)**.
 
 ## Improvements
 
@@ -110,6 +111,7 @@ The project was really nice, considering the fact that the delivery has to be cl
 - Writing unit test for stateful components.
 - Making persistant data using url and updating it based upon paginations and searches.
 - I have learnt using `material-ui` on the go, so working with it, was a bit challenging, but it later was managed.
+- Creating a PR, as both the branches were not sharing any histories. Hence, I had to merge the content and make it atleast PR friendly. You can find more about the problem [here](https://spences10.medium.com/git-allow-unrelated-histories-a39a3814b981). Do not want to mess with the current work and also want to check the checklist. Hence went with this solution.
 
 ## Feedback
 
