@@ -35,7 +35,7 @@ const HomePage = () => {
   }
 
   return (
-    <div className="App" data-testid='container'>
+    <div className="App">
       <SearchBox
         setPageNumber={setPage} 
         searchedValue={filterValues} 
@@ -55,14 +55,13 @@ const HomePage = () => {
               color="secondary" 
               variant="outlined" 
               onChange={handlePageChange}
-              count={Math.ceil(booksData.count / itemsPerPage) ?? 1}
+              count={Math.ceil(booksData.count / itemsPerPage)}
             />
 
             {PaginationData.currentData().map((book: Book) => (
                 <BooksCard 
                   book={book} 
-                  key={book.id} 
-                  data-testid='book-card'
+                  key={book.id}
                 />
             ))}
 
