@@ -42,7 +42,7 @@ describe('Fetch Books', () => {
     test('fetch books', async () => {
         const payload = { page: 1, itemsPerPage: 20, filters: []};
     
-        global.fetch = jest.fn().mockImplementationOnce(() => 
+        window.fetch = jest.fn().mockImplementationOnce(() => 
             Promise.resolve({
                 json: () => MOCKDATA
             })
@@ -53,7 +53,7 @@ describe('Fetch Books', () => {
     });
 
     test('when api call fails', async () => {
-        global.fetch = jest.fn().mockRejectedValueOnce(new Error(''));
+        window.fetch = jest.fn().mockRejectedValueOnce(new Error(''));
 
         const result = await fetchBooksData({});
         expect(result).toBe(null);
