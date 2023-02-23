@@ -47,10 +47,10 @@ The project has been created to give the users the best experience possible. Her
 
 - Fully responsive
 - Nice UI and UX
-- The app is full paginated and updates based upon the search query as well.
+- The app is fully paginated and updates based on the search query as well.
 - The project uses [React-Redux](https://react-redux.js.org/) for the storing and updating the book items.
 - The app provides filtering of the books. You can type in the value **(only one)**, which you like from the given book, or if you have something in mind, and it will give you the results.
-- The app is picking up and updating the data in the search query. Refreshing the page will not affect the app, the data will persist.
+- The app is picking up and updates the data in the search query. Refreshing the page will not affect the app, the data will persist.
 
 ## Running the Project
 
