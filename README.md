@@ -96,6 +96,8 @@ npm test
 
 ## Improvements
 
+A project can always be improved. Given the time, I have tried my level best to give the best UI-UX possible. Although I do have some pointers where the app can be improved:
+
 - [ ] Query param could have been improved, but the url for filter has been done in such a way to establish reconciliiation between the results and the url.
 - [ ] A more robust unit testing could have been written to make the app more robust and bug free.
 - [ ] A more enhanced UI with having more features for filtering, like specific searching values for **book_title**, **authors** etc, or a better loading widget.
@@ -103,9 +105,11 @@ npm test
 
 ## Challenges Faced
 
-- [ ] Writing unit test for stateful components.
-- [ ] Making persistant data using url and updating it based upon paginations and searches.
-- [ ] I have learnt using `material-ui` on the go, so working with it, was a bit challenging, but it later was managed.
+The project was really nice, considering the fact that the delivery has to be close to perfect. There are few things which did test the developer's grit:
+
+- Writing unit test for stateful components.
+- Making persistant data using url and updating it based upon paginations and searches.
+- I have learnt using `material-ui` on the go, so working with it, was a bit challenging, but it later was managed.
 
 ## Feedback
 
