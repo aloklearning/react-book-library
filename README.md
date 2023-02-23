@@ -93,6 +93,7 @@ npm test
 - Filter post param update leads to updating the books item and the url doesn't have to look like `[type: 'all', values: ['']]`.
 - Writing unit test, doesn't have any hard rules on testing every component and features. Have added 4 test cases, doing a very basic unit testing.
 - Can install other helping libraries like `react-router-dom`, `material-ui/icons`.
+- Opening a PR against a non-empty repo will work, as we have used the word **(probably)**.
 
 ## Improvements
 
@@ -123,4 +124,4 @@ This project is licensed under the MIT licence - see the [LICENCE](https://githu
 ## Learn More
 
 - You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-- To learn React, check out the [React documentation](https://reactjs.org/).
+- To learn React, check out the [React documentation](https://reactjs.org/)
