@@ -1,6 +1,11 @@
-# Getting Started with Create React App
+# React Book Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![made-with-react](https://img.shields.io/badge/Made%20with-React-1f425f.svg)](https://reactjs.org/)
+[![GitHub license](https://badgen.net/github/license/Naereen/Strapdown.js)](https://github.com/Naereen/StrapDown.js/blob/master/LICENSE)
+[![build](https://img.shields.io/appveyor/build/gruntjs/grunt)](https://pub.dev/packages/flutter_bounce#-analysis-tab-)
+
+- This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) used to go through the list of the books.
+- This project comes with a basic filter to find out the books which aligns with our choice of input.
 
 ## Available Scripts
 
