@@ -78,7 +78,7 @@ class BooksCard extends Component<BookCardProps> {
                     </CardActions>
 
                     <SubContent 
-                        title="Author" 
+                        title="Authors" 
                         icon={<GroupTwoTone />}
                         content={bookItem.book_author.map((author: string) => author)} 
                     />
