@@ -5,7 +5,7 @@
 [![build](https://img.shields.io/appveyor/build/gruntjs/grunt)](https://pub.dev/packages/flutter_bounce#-analysis-tab-)
 
 - This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app) used to go through the list of the books.
-- This project is **fully responsive** and has taken UI motivations from [GetGround](https://www.getground.co.uk/) to give a feeling of belongingness to the GetGround ecosystem.
+- This project is **fully responsive**.
 - The UI/UX implementations and strategiies are purely developer's ([Alok Kumar](https://github.com/aloklearning)) work and there is no way it has been copy-pasted from other website.
 - This project comes with a basic filter to find out the books which aligns with our choice of input.
 
@@ -71,29 +71,6 @@ npm install && npm start
 ```bash
 npm test
 ```
-
-## Submission Checklist
-
-- [x] Using React, build a webapp that queries this paginated endpoint. Use Redux to save the results and then print out the results as a list on the page.
-- [x] The app should be paginated with the pagination reflected in the url (so when the page is refreshed, the same results are shown).
-- [x] Write at least one component as a React class based component (the rest can be functional components). Component name is [BooksCard](https://github.com/aloklearning/react-book-library/blob/main/src/Components/BooksCard.tsx).
-- [x] Write at least one unit test.
-- [x] The repo is GitHub repo has kept **private**.
-- [x] Host your code on Github, put all the code in a Pull Request **(Partially done)**.
-
-## Bonus Checklist
-
-- [x] Add a search field to the app that upon request populates the ​filters​ post param
-- [x] Use Material-UI as a component library.
-- [x] Add loading state
-
-## Assumptions
-
-- By url, we meean `search query url`.
-- Filter post param update leads to updating the books item and the url doesn't have to look like `[type: 'all', values: ['']]`.
-- Writing unit test, doesn't have any hard rules on testing every component and features. Have added 4 test cases, doing a very basic unit testing.
-- Can install other helping libraries like `react-router-dom`, `material-ui/icons`.
-- Opening a PR against a non-empty repo will work, as we have used the word **(probably)**.
 
 ## Improvements
 
